@@ -1,0 +1,16 @@
+{
+  "miniprogramRoot": "dist/",
+  "projectname": "resume-micro-app",
+  "description": "Bauhaus Resume Micro App",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "enhance": false,
+    "postcss": false,
+    "previewPostSize": 2048,
+    "bigPackageSizeSupport": true
+  },
+  "compileType": "miniprogram",
+  "condition": {}
+}

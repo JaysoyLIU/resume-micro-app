@@ -1,0 +1,459 @@
+// src/pages/profile/index.module.scss
+@import '../../styles/variables';
+
+.page {
+  background: $bg;
+  min-height: 100vh;
+}
+
+// ─────────────────────────────────────────
+// User Hero
+// ─────────────────────────────────────────
+
+.user_hero {
+  background: $fg;
+  border-bottom: 4px solid $fg;
+  padding: $sp-8 $sp-5 $sp-5;
+  position: relative;
+  overflow: hidden;
+
+  &__deco {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 6px solid rgba(255, 255, 255, 0.06);
+    top: -24px;
+    right: -24px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $sp-4;
+    position: relative;
+  }
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  background: $red;
+  border: 4px solid $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &__text {
+    font-size: 22px;
+    font-weight: 900;
+    color: $white;
+  }
+}
+
+.user_info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-2;
+
+  &__name {
+    font-size: 18px;
+    font-weight: 900;
+    color: $white;
+    display: block;
+  }
+
+  &__badge_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $sp-3;
+  }
+
+  &__quota {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    display: block;
+  }
+}
+
+.badge {
+  border: 2px solid;
+  padding: 2px 8px;
+
+  text {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  &--vip {
+    border-color: $yellow;
+    background: $yellow;
+    text { color: $fg; }
+  }
+
+  &--free {
+    border-color: rgba(255, 255, 255, 0.3);
+    text { color: rgba(255, 255, 255, 0.5); }
+  }
+}
+
+// ─────────────────────────────────────────
+// VIP Card
+// ─────────────────────────────────────────
+
+.vip_card {
+  margin: $sp-5 $sp-4 0;
+  background: $red;
+  border: 4px solid $fg;
+  box-shadow: $shadow-lg;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+  &__left {
+    flex: 1;
+    padding: $sp-5;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-1;
+  }
+
+  &__label {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 5px;
+    display: block;
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: 900;
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+  }
+
+  &__price {
+    font-size: 28px;
+    font-weight: 900;
+    color: $yellow;
+    letter-spacing: -1px;
+    display: block;
+    margin-top: $sp-2;
+  }
+
+  &__currency {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &__unit {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  &__right {
+    width: 120px;
+    background: rgba(0, 0, 0, 0.15);
+    border-left: 4px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $sp-3;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__geo_circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    top: -16px;
+    right: -16px;
+  }
+
+  &__geo_square {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: rgba(240, 192, 32, 0.2);
+    transform: rotate(45deg);
+    bottom: 10px;
+    left: 10px;
+  }
+
+  &__btn {
+    background: $white;
+    border: 3px solid $fg;
+    box-shadow: $shadow-sm;
+    padding: 10px 14px;
+    position: relative;
+    z-index: 1;
+
+    text {
+      font-size: 11px;
+      font-weight: 900;
+      color: $red;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+// ─────────────────────────────────────────
+// Section
+// ─────────────────────────────────────────
+
+.section {
+  padding: $sp-5 $sp-4 0;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $sp-3;
+    margin-bottom: $sp-4;
+  }
+
+  &__line {
+    flex: 1;
+    height: 4px;
+    background: $fg;
+  }
+
+  &__title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: $fg;
+  }
+}
+
+// ─────────────────────────────────────────
+// AI Pack Card
+// ─────────────────────────────────────────
+
+.pack_card {
+  background: $white;
+  border: 4px solid $fg;
+  box-shadow: $shadow-md;
+  padding: $sp-4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  &__left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $sp-3;
+    flex: 1;
+  }
+
+  &__symbol {
+    font-size: 24px;
+    font-weight: 900;
+    color: $blue;
+    width: 32px;
+    text-align: center;
+  }
+
+  &__name {
+    font-size: 14px;
+    font-weight: 900;
+    color: $fg;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  &__desc {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(18, 18, 18, 0.5);
+    display: block;
+    margin-top: 3px;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $sp-2;
+  }
+
+  &__price {
+    font-size: 22px;
+    font-weight: 900;
+    color: $red;
+  }
+
+  &__arrow {
+    font-size: 20px;
+    font-weight: 700;
+    color: $fg;
+  }
+}
+
+// ─────────────────────────────────────────
+// Feature Table
+// ─────────────────────────────────────────
+
+.feature_table {
+  background: $white;
+  border: 4px solid $fg;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    background: $fg;
+    padding: $sp-3 $sp-4;
+    align-items: center;
+  }
+
+  &__col_left {
+    flex: 1;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  &__col {
+    width: 48px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.feature_row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: $sp-3 $sp-4;
+  border-bottom: 2px solid $muted;
+
+  &:last-child { border-bottom: none; }
+
+  &__name {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: $sp-2;
+  }
+
+  &__symbol {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(18, 18, 18, 0.3);
+    width: 16px;
+    text-align: center;
+  }
+
+  &__text {
+    font-size: 12px;
+    font-weight: 500;
+    color: $fg;
+    display: block;
+  }
+
+  &__free {
+    width: 48px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(18, 18, 18, 0.3);
+    display: block;
+  }
+
+  &__vip {
+    width: 48px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: $red;
+    display: block;
+  }
+}
+
+// ─────────────────────────────────────────
+// Footer
+// ─────────────────────────────────────────
+
+.footer {
+  background: $fg;
+  border-top: 4px solid $fg;
+  margin-top: $sp-5;
+  padding: $sp-6 $sp-5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $sp-3;
+
+  &__shapes {
+    display: flex;
+    flex-direction: row;
+    gap: $sp-3;
+    align-items: center;
+  }
+
+  &__circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: $red;
+  }
+
+  &__square {
+    width: 16px;
+    height: 16px;
+    background: $blue;
+  }
+
+  &__tri {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 16px solid $yellow;
+  }
+
+  &__text {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+    text-align: center;
+    display: block;
+  }
+
+  &__legal {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.2);
+    display: block;
+  }
+}
+
+.safe { height: 72px; }

@@ -1,0 +1,134 @@
+// ─────────────────────────────────────────
+// Bauhaus Design System — Design Tokens
+// ─────────────────────────────────────────
+
+// Color Palette (strictly limited: primaries + black/white)
+$bg:           #F0F0F0;   // Off-white canvas
+$fg:           #121212;   // Stark black
+$red:          #D02020;   // Bauhaus red
+$blue:         #1040C0;   // Bauhaus blue
+$yellow:       #F0C020;   // Bauhaus yellow
+$muted:        #E0E0E0;   // Light gray
+$white:        #ffffff;
+
+// Hard Offset Shadows (no blur — constructivist depth)
+$shadow-sm:    4px 4px 0px 0px #{$fg};
+$shadow-md:    6px 6px 0px 0px #{$fg};
+$shadow-lg:    8px 8px 0px 0px #{$fg};
+
+// Spacing Scale
+$sp-1:  4px;
+$sp-2:  8px;
+$sp-3:  12px;
+$sp-4:  16px;
+$sp-5:  20px;
+$sp-6:  24px;
+$sp-8:  32px;
+$sp-10: 40px;
+$sp-12: 48px;
+
+// ─────────────────────────────────────────
+// Typography Mixins
+// ─────────────────────────────────────────
+
+@mixin display {
+  font-size: 52px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  line-height: 0.9;
+}
+
+@mixin heading {
+  font-size: 22px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@mixin label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+@mixin body-copy {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+
+// ─────────────────────────────────────────
+// Component Mixins
+// ─────────────────────────────────────────
+
+@mixin bauhaus-card {
+  background: $white;
+  border: 4px solid $fg;
+  box-shadow: $shadow-lg;
+}
+
+@mixin bauhaus-btn($bg, $color) {
+  background: $bg;
+  color: $color;
+  border: 3px solid $fg;
+  box-shadow: $shadow-sm;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+}
+
+// ─────────────────────────────────────────
+// Page Header (shared across pages)
+// ─────────────────────────────────────────
+
+%page-header-base {
+  padding: 40px $sp-5 32px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid $fg;
+}
+
+%page-header-number {
+  @include label;
+  color: rgba(255, 255, 255, 0.45);
+  display: block;
+  margin-bottom: $sp-2;
+}
+
+%page-header-title {
+  @include display;
+  color: $white;
+  display: block;
+}
+
+%page-header-sub {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 2px;
+  display: block;
+  margin-top: $sp-3;
+}
+
+// Section Header (divider + label)
+%section-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $sp-3;
+  margin-bottom: $sp-6;
+
+  .line {
+    flex: 1;
+    height: 4px;
+    background: $fg;
+  }
+
+  .title {
+    @include label;
+  }
+}

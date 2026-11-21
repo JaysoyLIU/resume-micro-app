@@ -1,0 +1,377 @@
+// src/pages/editor/index.module.scss
+@import '../../styles/variables';
+
+.page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  background: $bg;
+  overflow: hidden;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+
+  &__text {
+    font-size: 14px;
+    color: rgba(18, 18, 18, 0.5);
+  }
+}
+
+// ─────────────────────────────────────────
+// Left Rail (section tabs)
+// ─────────────────────────────────────────
+
+.rail {
+  width: 60px;
+  background: $fg;
+  border-right: 4px solid $fg;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  &__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 4px 2px;
+
+    &:last-child { border-bottom: none; }
+
+    &--active {
+      // backgroundColor set inline per section color
+    }
+  }
+
+  &__symbol {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 700;
+    line-height: 1;
+
+    .rail__item--active & {
+      color: $white;
+    }
+  }
+
+  &__label {
+    font-size: 9px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.35);
+    text-align: center;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    letter-spacing: 1px;
+    line-height: 1;
+
+    .rail__item--active & {
+      color: $white;
+    }
+  }
+}
+
+// ─────────────────────────────────────────
+// Main Content
+// ─────────────────────────────────────────
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.section_header {
+  background: $bg;
+  border-bottom: 4px solid $fg;
+  padding: $sp-3 $sp-4;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $fg;
+  }
+}
+
+.save_btn {
+  background: $fg;
+  border: 2px solid $fg;
+  padding: 6px 14px;
+
+  text {
+    font-size: 11px;
+    font-weight: 700;
+    color: $white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+.scroll {
+  flex: 1;
+}
+
+// ─────────────────────────────────────────
+// Form
+// ─────────────────────────────────────────
+
+.form {
+  padding: $sp-4;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(18, 18, 18, 0.5);
+    display: block;
+  }
+
+  &__label_row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__input {
+    background: $white;
+    border: 3px solid $fg;
+    padding: $sp-3 $sp-3;
+    font-size: 14px;
+    font-weight: 500;
+    color: $fg;
+    border-radius: 0;
+  }
+
+  &__textarea {
+    background: $white;
+    border: 3px solid $fg;
+    padding: $sp-3;
+    font-size: 13px;
+    font-weight: 500;
+    color: $fg;
+    line-height: 1.65;
+    min-height: 80px;
+    border-radius: 0;
+    width: 100%;
+  }
+}
+
+.ai_badge {
+  background: $blue;
+  border: 2px solid $fg;
+  padding: 3px 10px;
+
+  text {
+    font-size: 10px;
+    font-weight: 700;
+    color: $white;
+    letter-spacing: 1px;
+  }
+}
+
+// ─────────────────────────────────────────
+// Experience list
+// ─────────────────────────────────────────
+
+.exp_list {
+  padding: $sp-4;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-4;
+}
+
+.exp_item {
+  background: $white;
+  border: 4px solid $fg;
+  box-shadow: $shadow-sm;
+  overflow: hidden;
+
+  &__header {
+    background: $fg;
+    padding: $sp-3 $sp-4;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__company {
+    font-size: 13px;
+    font-weight: 900;
+    color: $white;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  &__role {
+    font-size: 10px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  &__body {
+    padding: $sp-3 $sp-4;
+    display: flex;
+    flex-direction: column;
+    gap: $sp-3;
+  }
+
+  &__desc_label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(18, 18, 18, 0.4);
+    display: block;
+  }
+}
+
+// AI Polish button
+.polish_btn {
+  background: $red;
+  border: 3px solid $fg;
+  box-shadow: $shadow-sm;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    font-size: 12px;
+    font-weight: 900;
+    color: $white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+// Polished result
+.polished {
+  background: #FFFDE7;  // light yellow
+  border: 3px solid $fg;
+  padding: $sp-3;
+  display: flex;
+  flex-direction: column;
+  gap: $sp-2;
+
+  &__label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: $fg;
+    display: block;
+  }
+
+  &__text {
+    font-size: 12px;
+    font-weight: 500;
+    color: $fg;
+    line-height: 1.65;
+    display: block;
+  }
+}
+
+// Add item button
+.add_btn {
+  border: 3px dashed $fg;
+  padding: $sp-4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(18, 18, 18, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+// Skills
+.skills_preview {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: $sp-2;
+  margin-top: $sp-1;
+}
+
+.skill_tag {
+  border: 2px solid;
+  padding: 4px 10px;
+
+  text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.empty_tip {
+  padding: $sp-8 $sp-4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    font-size: 13px;
+    color: rgba(18, 18, 18, 0.4);
+    text-align: center;
+  }
+}
+
+// Preview FAB
+.preview_fab {
+  position: fixed;
+  bottom: 80px;
+  right: $sp-4;
+  background: $blue;
+  border: 4px solid $fg;
+  box-shadow: $shadow-sm;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    font-size: 10px;
+    font-weight: 900;
+    color: $white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+}
+
+.safe { height: 80px; }
